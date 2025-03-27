@@ -75,6 +75,7 @@ class MainActivity : ComponentActivity(), SmsListener {
         }
     }
 
+
 //    override fun onResume() {
 //        super.onResume()
 //        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_SMS)
