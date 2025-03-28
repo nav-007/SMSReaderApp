@@ -36,6 +36,7 @@ class MainActivity : ComponentActivity(), SmsListener {
         super.onCreate(savedInstanceState)
 
         requestSmsPermissions()
+
         setContent {
             SMSReadAppTheme {
                 // A surface container using the 'background' color from the theme
@@ -75,15 +76,6 @@ class MainActivity : ComponentActivity(), SmsListener {
         }
     }
 
-
-//    override fun onResume() {
-//        super.onResume()
-//        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_SMS)
-//            == PackageManager.PERMISSION_GRANTED) {
-//            loadSmsFromInbox()
-//        }
-//    }
-
     override fun onStop() {
         super.onStop()
         finish()
@@ -121,7 +113,7 @@ class MainActivity : ComponentActivity(), SmsListener {
 
     private fun loadSmsFromInbox() {
         smsList.clear()
-        val uri: Uri = Telephony.Sms.CONTENT_URI
+        val uri: Uri = Telephony.Sms.Inbox.CONTENT_URI
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_SMS)
             != PackageManager.PERMISSION_GRANTED) {
             return // Stop execution if permission is not granted
